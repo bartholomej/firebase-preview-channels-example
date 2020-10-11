@@ -18,7 +18,10 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/previewchannels-app/browser",
-            "index": "src/index.html",
+            "index": {
+              "input": "src/index.html",
+              "output": "index.original.html"
+            },
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",

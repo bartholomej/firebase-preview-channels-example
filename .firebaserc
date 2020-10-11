@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "mypreviewchannels"
+  },
+  "targets": {
+    "mypreviewchannels": {
+      "hosting": {
+        "previewchannels-app": [
+          "mypreviewchannels"
+        ],
+        "ssr": [
+          "mypreviewchannels-ssr"
+        ]
+      }
+    }
   }
 }

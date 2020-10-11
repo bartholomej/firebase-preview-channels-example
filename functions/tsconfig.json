@@ -10,6 +10,6 @@
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "src", "copy-angular-app.js"
   ]
 }
