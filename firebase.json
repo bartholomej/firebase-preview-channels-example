@@ -1,6 +1,7 @@
 {
-  "hosting": {
-    "public": "dist/previewchannels-app",
+  "hosting": [{
+    "target": "previewchannels-app",
+    "public": "functions/dist/previewchannels-app/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,8 +10,26 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "destination": "/index.original.html"
       }
     ]
+  }, {
+    "target": "ssr",
+    "public": "functions/dist/previewchannels-app/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssr"
+      }
+    ]
+  }],
+  "functions": {
+    "predeploy": [
+      "yarn --ignore-engines --cwd \"$RESOURCE_DIR\" install",
+      "yarn --ignore-engines --cwd \"$RESOURCE_DIR\" build"
+    ],
+    "target": "ssr",
+    "source": "functions"
   }
 }
